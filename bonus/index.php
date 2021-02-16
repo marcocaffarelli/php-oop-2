@@ -8,6 +8,7 @@
 
 include __DIR__ . '/classes/User.php';
 include __DIR__ . '/classes/Profile.php';
+include __DIR__ . '/classes/Articolo.php';
 
 
 $profiles = [    
@@ -15,6 +16,10 @@ $profiles = [
     new Profile('Anna', 'Rossi', 'Redan', 'annarossi@email.it', 'password', 'img', 'descrizione descrizione descriione descrizione descrizione', 'twitter', 'facebook', 'instagram' ),
     new Profile('Pino', 'Bianchi', 'Whitepino', 'bianchipino@email.it', 'password', 'img', 'descrizione descrizione descriione descrizione descrizione', 'twitter', 'facebook', 'instagram' ),
 ];
+
+$articolo1 = new Articolo('VsCode vs Atom', 'VsCode o Atom quale scegliere per programmare?', 'La domanda che molti sviluppatori si pongono...', 'img', 'categoria', 'fonti', 'John Doe: sviluppatore...' );
+$articolo2 = new Articolo('La scomparsa dei piccioni da Roma', 'Come mai i piccioni stanno scomparendo...', 'Ormai camminare tra le strade di Roma...', 'img', 'categoria', 'fonti', 'Charles Xavier: studente...' );
+$articolo3 = new Articolo('Lionel Messi la leggenda blaugrana', 'l\'ultima bandiera del Barcellona...', 'Nasce a Rosario il 24 giugno 1987...', 'img', 'categoria', 'fonti', 'Cristiano Ronaldo: ex calciatore...' );
 
 ?>
 
@@ -24,7 +29,7 @@ $profiles = [
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Users</title>
+        <title>Blog</title>
     </head>
     <style>
         *{
@@ -46,11 +51,32 @@ $profiles = [
             margin: 20px 0;
             width: 300px;
             text-align: center;
-            background-color: yellow;
         }
         .utente_card a{
             text-decoration: none;
         }
+        .container_articolo{
+            width: 80%;
+            margin: auto;
+            background-color: gold;
+        }
+        h2{
+            text-align: center;
+        }
+        .introduzione{
+            padding: 20px 0;
+            font-size: 20px;
+            border-bottom: 3px solid black;
+        }
+        .corpo{
+            margin: 80px 0;
+        }
+        .box_autore{
+            background-color: beige;
+            padding: 10px 0;
+            margin: 20px 0;
+        }
+
     </style>
     <body>
         <h1>Profiles</h1>
@@ -67,6 +93,17 @@ $profiles = [
                     <div><a href="#"><?php echo $profile->linkAccountInstagram; ?></a></div> 
                 </div>
             <?php } ?>
+        </div>
+
+        <h1>ARTICOLO</h1>
+        <div class="container_articolo">
+                <h2><?php echo $articolo3->titolo;?></h2>
+                <p class="introduzione"><?php echo $articolo3->introduzione;?></p>
+                <div class="corpo">
+                    <p><?php echo $articolo3->corpo;?></p>
+                    <a href="#"><?php echo $articolo3->link; ?></a>
+                </div> 
+                <p class="box_autore"><?php echo $articolo3->boxAutore;?></p>
         </div>
     </body>
 </html>
