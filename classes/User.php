@@ -12,7 +12,7 @@ class User{
     public $cognome;
     public $nickname;
     public $email;
-    public $password;
+    private $password;
 
     //constructor
     public function __construct(string $nome, string $cognome, string $nickname, string $email, string $password) {
@@ -26,7 +26,7 @@ class User{
     public function setPassword($password){
         $this->password = $password;
     }
-    public function getPassword($password){
+    public function getPassword(){
         return $this->password;
     }
 
